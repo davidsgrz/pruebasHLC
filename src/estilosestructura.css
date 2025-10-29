@@ -1,0 +1,403 @@
+/* =========================
+  Paleta de colores y fuentes
+========================= */
+:root {
+  --primary-color: #c04c4c;       /* Rojo oscuro */
+  --secondary-color: #f2f0ea;       /* Fondo claro */
+  --accent-color: #ffc7c7;          /* Rosado suave */
+  --text-color: #333;             /* Color del texto */
+  --transition-speed: 0.3s;
+  --main-font: 'Arial', sans-serif;
+}
+
+/* =========================
+     ESTILOS GENERALES
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos de foco para elementos interactivos - reducido para ser más práctico */
+a:focus, button:focus {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Uso de Grid para la disposición general de la página */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "section"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  font-family: var(--main-font);
+  line-height: 1.6;
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/* Asignación de áreas a cada sección */
+header { grid-area: header; }
+section { grid-area: section; }
+.main-container { grid-area: main; }
+footer { grid-area: footer; }
+
+/* =========================
+          CABECERA
+========================= */
+header {
+  background-color: var(--primary-color);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+}
+header h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* =========================
+  MENÚ DE NAVEGACIÓN (Flexbox)
+========================= */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  padding: 0.5rem;
+}
+
+/* ======== MENÚ ORIGINAL ========= */
+.menu {
+  font-family: var(--main-font);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 76px;
+  /* Usamos un ancho fijo con max-width para control */
+  width: 120px;
+  max-width: 10vw;
+  margin: 0.5rem;
+  overflow: hidden;
+}
+
+/* Bordes superiores para cada opción del menú */
+.menu.Inicio,
+.menu.Sobre_mí,
+.menu.estudios,
+.menu.ExperienciaLaboral,
+.menu.Habilidades,
+.menu.Hobbies,
+.menu.contacto {
+  border-top: var(--secondary-color) 0.3em solid;
+}
+
+.menu > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+}
+
+.menu:hover > span {
+  height: 100%;
+}
+
+.menu:after,
+.menu > span > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0;
+  padding: 2rem 0 1.5em;
+  font-size: clamp(0.75rem, 3vw, 1rem);
+}
+
+.menu:after {
+  content: attr(data-title);
+  width: 100%;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.menu > span > span {
+  width: 100%;
+  color: var(--secondary-color);
+}
+
+.menu.Inicio > span > span,
+.menu.Sobre_mí > span > span,
+.menu.estudios > span > span,
+.menu.ExperienciaLaboral > span > span,
+.menu.Habilidades > span > span,
+.menu.Hobbies > span > span,
+.menu.contacto > span > span {
+  background: var(--primary-color);
+}
+
+/* Lista de navegación */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--main-font);
+}
+
+/* =========================
+   SECCIÓN (Foto Destacada, Mapas, Tablas, etc.)
+========================= */
+article {
+  background-color: var(--primary-color);
+  width: 200px; /* Ancho fijo en px */
+  max-width: 90%; /* Porcentaje para responsividad */
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+article:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05); /* Reducido para evitar solapamientos */
+  transition: all var(--transition-speed) ease;
+}
+
+section {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+section .mapa {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  border: none;
+  height: 300px;
+}
+
+/* =========================
+   TABLAS
+========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-family: var(--main-font);
+}
+
+table thead {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+table thead th {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+table tbody tr {
+  background-color: var(--secondary-color);
+}
+
+table tbody td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+/* =========================
+    CONTENEDOR PRINCIPAL (Grid: Contenido )
+========================= */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* =========================
+    Estilos para el Carrusel
+========================= */
+#carousel-container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+  margin: 2rem auto;
+}
+#carousel-image {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+#prev-btn,
+#next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+  z-index: 2;
+}
+#prev-btn:hover,
+#next-btn:hover {
+  background-color: var(--accent-color);
+}
+#prev-btn {
+  left: 10px;
+}
+#next-btn {
+  right: 10px;
+}
+
+/* Animación para la transición de imágenes en el carrusel */
+.fade-in {
+  animation: fadeIn 0.8s forwards ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+           ASIDE (Sidebar)
+========================= */
+.sidebar {
+  background-color: var(--accent-color);
+  padding: 1rem;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  overflow-y: auto;
+}
+/* =========================
+          PIE DE PÁGINA
+========================= */
+footer {
+  background-color: var(--secondary-color);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.social-links li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.social-links li a:hover {
+  background-color: var(--accent-color);
+}
+
+.social-links li a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+       MEDIA QUERIES (RESPONSIVIDAD)
+========================= */
+
+/* Para pantallas medianas (tablets) */
+@media (min-width: 768px) {
+  .main-container {
+    grid-template-columns: 1fr minmax(150px, 300px);
+  }
+  
+  ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .menu {
+    width: 150px;
+    max-width: 15vw;
+  }
+}
+@media (max-width: 767px) {
+  .menu {
+    width: calc(100% - 1rem); /* Para que quepan dos por fila */
+    max-width: none;         /* Quita la restricción de 10vw */
+    margin: 0.5rem;
+  }
+}
+

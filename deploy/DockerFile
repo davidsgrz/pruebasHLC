@@ -1,0 +1,8 @@
+#Partimos de ina imagen de docker con apache isntalado 
+FROM httpd:2.4
+#(LA INFORMACION DE LA IMAGEN  SE CONSULTA EN DOCKERHUB - PARA VER LA VARIABLE DE ENTORNO, DIRECTORIO DE TRABAJO...)
+#MARCAMOS EL DIRECTORIO DE TRABAJO DE ESTE CONTENEDOR
+#hay que marcar donde vamos a estar trabajando
+WORKDIR /usr/local/apache2/htdocs/
+COPY ./src .
+EXPOSE 80

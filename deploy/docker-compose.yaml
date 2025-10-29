@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: ./deploy/DockerFile
+    container_name: portfolio_Davidcopy
+    ports:
+    - "8810:80"
+    

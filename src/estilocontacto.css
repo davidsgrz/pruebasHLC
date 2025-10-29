@@ -1,0 +1,282 @@
+/* =========================
+  Paleta de colores y fuentes
+========================= */
+:root {
+  --primary-color: #c04c4c;       /* Rojo oscuro */
+  --secondary-color: #f2f0ea;       /* Fondo claro */
+  --accent-color: #ffc7c7;          /* Rosado suave */
+  --text-color: #333;             /* Color del texto */
+  --darkcolor: #020103;           /* Color oscuro */
+  --transition-speed: 0.3s;
+  --main-font: 'Arial', sans-serif;
+}
+
+/* =========================
+     ESTILOS GENERALES
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,body {
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+}
+header {
+  background-color: var(--primary-color);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+header h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  padding: 0.5rem;
+}
+
+/* ======== MENÚ ORIGINAL ========= */
+.menu {
+  font-family: var(--main-font);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 76px;
+  /* Usamos un ancho fijo con max-width para control */
+  width: 120px;
+  max-width: 10vw;
+  margin: 0.5rem;
+  overflow: hidden;
+}
+
+/* Bordes superiores para cada opción del menú */
+.menu.Inicio,
+.menu.Sobre_mí,
+.menu.estudios,
+.menu.ExperienciaLaboral,
+.menu.Habilidades,
+.menu.Hobbies,
+.menu.contacto {
+  border-top: var(--secondary-color) 0.3em solid;
+}
+
+.menu > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+}
+
+.menu:hover > span {
+  height: 100%;
+}
+
+.menu:after,
+.menu > span > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0;
+  padding: 2rem 0 1.5em;
+  font-size: clamp(0.75rem, 3vw, 1rem);
+}
+
+.menu:after {
+  content: attr(data-title);
+  width: 100%;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.menu > span > span {
+  width: 100%;
+  color: var(--secondary-color);
+}
+
+.menu.Inicio > span > span,
+.menu.Sobre_mí > span > span,
+.menu.estudios > span > span,
+.menu.ExperienciaLaboral > span > span,
+.menu.Habilidades > span > span,
+.menu.Hobbies > span > span,
+.menu.contacto > span > span {
+  background: var(--primary-color);
+}
+
+/* Lista de navegación */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--main-font);
+}
+
+
+h1 {
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+fieldset {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--darkcolor);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  fieldset:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px var(--darkcolor)
+  }
+  
+  legend {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  
+  /* Estilos para etiquetas e iconos */
+  label {
+    font-weight: bold;
+  }
+  
+  .icon {
+    margin-right: 8px;
+    color: var(--darkcolor);
+  }
+
+button {
+    font-family: Arial, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--darkcolor);
+    border: 2px solid var(--darkcolor);
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+
+legend {
+    text-align: center;
+}
+
+
+footer {
+  background-color: var(--secondary-color);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.social-links li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.social-links li a:hover {
+  background-color: var(--accent-color);
+}
+
+.social-links li a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Para pantallas medianas (tablets) */
+@media (min-width: 768px) {
+  .main-container {
+    columns: 1fr minmax(150px, 300px);
+  }
+  
+  ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .menu {
+    width: 150px;
+    max-width: 15vw;
+  }
+}
+@media (max-width: 767px) {
+  .menu {
+    width: calc(100% - 1rem); /* Para que quepan dos por fila */
+    max-width: none;         /* Quita la restricción de 10vw */
+    margin: 0.5rem;
+  }
+}
+

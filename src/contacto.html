@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="estilocontacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+<body>
+    <header class="header">
+        <h1> DAVID SEGURA RODRIGUEZ </h1>
+        <nav>
+          <ul>
+            <li><a class="menu Inicio" href="index.html" data-title="Inicio"><span>
+                  <span>Inicio</span>
+                </span></a></li>
+            <li><a class="menu Sobre_mí" href="#" data-title="Sobre mí">
+                <span><span>Sobre mí</span>
+                </span></a></li>
+            <li><a class="menu estudios" href="#" data-title="Estudios">
+                <span><span>Estudios</span>
+                </span></a></li>
+            <li><a class="menu ExperienciaLaboral" href="#" data-title="Experiencia">
+                <span><span>Experiencia</span>
+                </span></a></li>
+            <li><a class="menu Habilidades" href="#" data-title="Habilidades">
+                <span><span>Habilidades</span>
+                </span></a></li>
+            <li><a class="menu Hobbies" href="#" data-title="Hobbies">
+                <span><span>Hobbies</span>
+                </span></a></li>
+            <li><a class="menu contacto" href="contacto.html" data-title="Contacto">
+                <span><span>Contacto</span>
+                </span></a></li>
+          </ul>
+        </nav>
+    
+      </header>
+    
+      <main class="main-container">
+        <div class="content">
+    <form id="registroForm">
+        <fieldset>
+            <legend>Información Personal</legend>
+            <label for="nombre"> <i class="fas fa-user"></i> Nombre: </label>
+            <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre"> <br> <br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Introduce tu apellido"> <br> <br>
+            <label for="cumple">Fecha de Nacimiento:</label>
+            <input type="date" id="cumple" name="cumple>"> <br> <br>
+            <label for="sexo">Sexo:</label>
+            <input type="radio" name="sexo" value="opcion1" required> Hombre
+            <input type="radio" name="sexo" value="opcion2" required> Mujer
+            <input type="radio" name="sexo" value="opcion3" required> Otro
+
+        </fieldset> <br>
+
+        <fieldset>
+            <legend>Información de contacto</legend>
+            <label for="correo"> <i class="fas fa-envelope"></i></label>
+            <input type="email" id="correo" name="correo" required placeholder="correo@ejemplo.com"> <br> <br>
+            <label for="telefono"> Número de Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="+34 123 456 789"> <br><br>
+            <label for="direccion">Dirección:</label>
+            <textarea id="direccion" name="direccion" placeholder="Introduzca su direccion"></textarea>
+
+
+        </fieldset> <br>
+
+        <fieldset>
+            <legend>Información de cuenta</legend>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required placeholder="Elige un nombre de usuario"> <br> <br>
+            <label for="contraseña">Contraseña:</label> 
+            <input type="password" id="contraseña" name="contraseña" required placeholder="Introduce tu contraseña" minlength="8"> <br><br>
+            <label for="Repite_la_contraseña"> Repite la contraseña:</label> 
+            <input type="password" id="contraseña" name="contraseña" required placeholder="Repite la contraseña" minlength="8">             
+        </fieldset> <br>
+
+        <fieldset>
+            <legend>Contacto</legend>
+            <label for="Motivo_contacto">Motivo:</label>
+            <textarea id="Motivo_contacto" name="Motivo_contacto" placeholder="Motivo del contacto"></textarea> <br> <br>
+
+
+            <label for="terminos"></label>
+                <input type="checkbox" name="terminos" required>Acepto los Términos y Condiciones <br> <br>
+                <input type="submit" value="Enviar">
+        </fieldset> <br>
+        <button type="button" onclick="window.location.href='index.html'">Atrás</button>
+</main>
+
+
+    </body>
+    <footer>
+        <ul class="social-links">
+          <li>
+            <a href="https://www.facebook.com" target="_blank" title="Facebook" class="social-links">
+              <img src="IMG/facebook.png" alt="Icono de Facebook">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.x.com" target="_blank" title="Twitter" class="social-links">
+              <img src="IMG/x.png" alt="Icono de X">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com" target="_blank" title="Instagram" class="social-links">
+              <img src="IMG/insta.jpg" alt="Icono de Instagram">
+            </a>
+          </li>
+        </ul>
+      </footer>
+</html>
+     
+
+
+      
