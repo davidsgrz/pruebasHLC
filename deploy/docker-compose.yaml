@@ -8,7 +8,7 @@ services:
           - PASSWORD=1234
     container_name: pruebasHLC
     ports:
-    - "8810:80"
+    - "8820:80"
     
 
    
