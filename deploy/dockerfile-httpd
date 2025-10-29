@@ -1,0 +1,15 @@
+services:
+      
+    web:
+    
+        build:
+    
+        context: ../pruebasHLC
+    
+        dockerfile: ./deploy/Dockerfile
+    
+        container_name: pruebasHLC
+    
+        ports:
+            - "8810:80"
+
