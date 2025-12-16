@@ -1,29 +1,23 @@
 services:
   web:
     build:
-      context: /home/dav/jiahaohlc/docker/caronte/
+      context: ${CONTEXTO}
       dockerfile: ./dockerfiles/base/ubbasse 
-      args: #Variables de DFILE para la construcción de las imagenes 
-        - USUARIO=jiahao
     container_name: ${CONTAINER_NAME}
     image: dsegura97/ubbasse
-    # environment:
-    #   - USUARIO=jiahao
-    #   - PASSWORD=1234
     ports:
-      - ${PORT_SSH}:22
+      - ${PORT_SSH}:80
     env_file:
       - ./.env
     volumes:
       - ./logs:/root/logs 
     networks:
-      netcaronte:
+      netbase:
         ipv4_address: ${IP_WEB}
 networks:
-  netcaronte:
+  netbase:
     driver: bridge
     ipam:
       driver: default
       config:
         - subnet: ${SUBNET}
-
