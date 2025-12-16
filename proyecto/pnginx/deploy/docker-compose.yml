@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: ${CONTEXTO}
+      dockerfile: ./dockerfiles/sweb/nginx/nginxx
+    container_name: ${NOMBRE}
+    ports:
+      - "${PORT_WEB}:80"     
+    env_file:
+      - ./.env
+    image: dsegura97/nginxx
+    volumes:
+      - ./logs:/root/logs      
+    networks:
+      netnginxclase:
+        ipv4_address: ${IP}
+networks:
+  netnginxclase:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${SUBNET}

@@ -1,0 +1,19 @@
+# Usamos tu imagen base personalizada
+FROM dsegura97/ubbasse
+
+# Instalamos herramientas: 
+# nmap (escanear), xsltproc (reportes HTML), iproute2 (detectar red)
+RUN apt-get update && apt-get install -y \
+    nmap \
+    xsltproc \
+    iproute2 \
+    && rm -rf /var/lib/apt/lists/*
+
+
+RUN mkdir -p /root/admin/ubseguridad
+WORKDIR /root/admin/ubseguridad
+COPY ./dockerfiles/ubseguridad/admin/start.sh .
+RUN chmod +x ./start.sh
+
+# Definimos el script como punto de entrada
+ENTRYPOINT ["./start.sh"]

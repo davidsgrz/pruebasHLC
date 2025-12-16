@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: ${CONTEXTO}
+      dockerfile: ./dockerfiles/node/nodde
+    container_name: nodeclase
+    ports:
+      - "3000:3000"   
+    env_file:
+      - ./.env
+    image: dsegura97/nodejs
+    volumes:
+      - ./logs:/root/logs      
+    networks:
+      netnodeclase:
+        ipv4_address: ${IP}
+networks:
+  netnodeclase:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${SUBNET}
