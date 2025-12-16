@@ -4,7 +4,7 @@ services:
       context: ${CONTEXTO}
       dockerfile: ./dockerfiles/ubseguridad/ubseguridad
     container_name: auditor_seguridad
-    image: jiahaolin69/ubseguridadclase
+    image: dsegura97/ubseguridad
     volumes:
       - ./logs:/root/logs      
       - ./resultados_auditoria:/root/resultados
