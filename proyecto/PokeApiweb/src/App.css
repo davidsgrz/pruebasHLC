@@ -1,0 +1,207 @@
+/* =========================================
+   RESET & BASICS
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita scroll horizontal */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F2F2F2;
+  color: #222;
+  line-height: 1.6;
+  
+
+  display: block; 
+}
+
+
+#root {
+  width: 100%;
+}
+
+/* =========================================
+   LAYOUT & HEADER
+   ========================================= */
+.app-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Titulo, .titulo-app, h1 {
+  width: 100%;
+  background-color: #F2F2F2; /* O el color que prefieras de fondo */
+  color: #0075BE;
+  font-size: 3.3rem;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-weight: 900;
+  text-shadow: 2px 2px #ffffff;
+  margin: 0;
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar {
+  background-color: #EF4036;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Para que no se rompa en móviles */
+  gap: 14px;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  border-bottom: 5px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+a.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+}
+
+a.nav-link.active {
+  background-color: #0075BE;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,117,190,0.6);
+}
+
+a.nav-link:hover {
+  background-color: #FFCB05;
+  color: #222;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   MAIN CONTENT & GRID
+   ========================================= */
+.main-content {
+  width: 100%;
+  max-width: 1600px; 
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  gap: 30px;
+  /* AUTO-FIT: La magia que hace que ocupe todo el ancho disponible */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
+}
+
+/* =========================================
+   CARDS
+   ========================================= */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  border: 4px solid #222;
+  
+  width: 100%;
+  max-width: 300px; /* Tamaño máximo para que no se vean gigantes */
+  height: 380px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 8px 8px 0px #222;
+  border-color: #0075BE;
+}
+
+.card-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  color: #0075BE;
+  font-weight: 800;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 1rem;
+  font-weight: 800;
+  background-color: #FFCB05;
+  color: #222;
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-top: auto;
+  border: 2px solid #222;
+}
+
+/* =========================================
+   EXTRAS
+   ========================================= */
+.error-container {
+  text-align: center;
+  width: 100%;
+  padding: 50px;
+}
+
+.error-container img {
+  width: 350px;
+  max-width: 90%;
+  margin-top: 30px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 600px) {
+  .Titulo, h1 {
+    font-size: 2.5rem;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  
+  .navbar {
+    gap: 8px;
+  }
+  
+  a.nav-link {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
